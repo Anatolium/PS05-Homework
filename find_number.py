@@ -12,11 +12,12 @@ GAME_URL = "https://wikium.ru/game/number-one-numbers"
 
 
 def find_number():
-    n_cycles = int(input("Число проходов for: "))
+    # n_cycles = int(input("Число проходов for: "))
+    n_cycles = 60
 
     credentials = {
-        "email": ["mezzo-2011@yandex.ru"],
-        "psw": ["wikiu2349"]
+        "email": ["mezzo-2011@yandex.ru"],  # Вставьте email своего аккаунта
+        "psw": ["wikiu2349"]  # Вставьте свой пароль
     }
 
     browser = webdriver.Chrome()
@@ -54,7 +55,7 @@ def find_number():
 
     # Проходим тренажёр
     for _ in range(n_cycles):
-        # Если минута истекла, и мы покинули страницу тренажёра, выходим
+        # Если минута истекла и тренажёр закрылся, завершаем цикл
         if browser.current_url != GAME_URL:
             break
         try:
